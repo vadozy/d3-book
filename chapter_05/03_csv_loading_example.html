@@ -1,17 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>D3: Loading data from a CSV file</title>
-		<script type="text/javascript" src="../d3.js"></script>
-	</head>
-	<body>
-		<script type="text/javascript">
+  <head>
+    <meta charset="utf-8" />
+    <title>D3: Loading data from a CSV file</title>
+    <script type="text/javascript" src="../d3.v5/d3.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript">
+      d3.csv("food.csv", (d) => {
+        return { Food: d.Food, Deliciousness: +d.Deliciousness };
+      }).then(console.log);
 
-			d3.csv("food.csv", function(data) {
-				console.log(data);
-			});
+      d3.csv("food_BAD.csv", (d) => {
+        return { Food: d.Food, Deliciousness: +d.Deliciousness };
+      }).then((data) => {
+        console.log(data);
+      }).catch((error) =>{
+        console.error(`Handling error in Promise: ${error}`);
+      });
 
-		</script>
-	</body>
+      const f1 = async (url) => {
+        try {
+          const data = await d3.csv(url, (d) => {
+            return { Food: d.Food, Deliciousness: +d.Deliciousness };
+          });
+          console.log(data);
+        } catch(err) {
+          console.error(`Handling error in Async/Await: ${err}`);
+        }
+      };
+
+      f1("food.csv");
+      f1("food_BAD.csv");
+      
+    </script>
+  </body>
 </html>
