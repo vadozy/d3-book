@@ -23,7 +23,8 @@
 			var svg = d3.select("body")
 						.append("svg")
 						.attr("width", w)
-						.attr("height", h);
+						.attr("height", h)
+						.style("border", "1px solid #d4d4d4");
 
 			svg.selectAll("rect")
 			   .data(dataset)

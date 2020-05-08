@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>D3: Creating an empty SVG</title>
-		<script type="text/javascript" src="../d3.js"></script>
+		<script type="text/javascript" src="../d3.v5/d3.js"></script>
 		<style type="text/css">
 			/* No style rules here yet */		
 		</style>
@@ -14,6 +14,7 @@
 			//Create SVG element
 			var svg = d3.select("body")
 						.append("svg")
+						.style("border", "1px solid black")
 						.attr("width", 500)
 						.attr("height", 50);
 			
