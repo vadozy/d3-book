@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>D3: Time axis, prettier</title>
-		<script type="text/javascript" src="../d3.js"></script>
+		<script type="text/javascript" src="../d3.v5/d3.js"></script>
 		<style type="text/css">
 			/* No style rules here yet */		
 		</style>
@@ -33,7 +33,7 @@
 			}
 
 			//Load in the data
-			d3.csv("time_scale_data.csv", rowConverter, function(data) {
+			d3.csv("time_scale_data.csv", rowConverter).then(data => {
 
 				//Copy data into global dataset
 				dataset = data;
@@ -72,7 +72,8 @@
 				var svg = d3.select("body")
 							.append("svg")
 							.attr("width", w)
-							.attr("height", h);
+							.attr("height", h)
+							.style("border", "1px solid #d4d4d4");
 
 				//Generate guide lines
 				svg.selectAll("line")

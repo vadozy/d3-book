@@ -3,9 +3,18 @@
 	<head>
 		<meta charset="utf-8">
 		<title>D3: A simple, unstyled axis</title>
-		<script type="text/javascript" src="../d3.js"></script>
+		<script type="text/javascript" src="../d3.v5/d3.js"></script>
 		<style type="text/css">
-			/* No style rules here yet */
+			.axis path, 
+			.axis line {
+				stroke: teal;
+				shape-rendering: crispEdges;
+			}
+			.axis text {
+				font-family: Optima, Futura, sans-serif; font-weight: bold;
+				font-size: 14px;
+				fill: teal;
+			}
 		</style>
 	</head>
 	<body>
@@ -43,7 +52,8 @@
 			var svg = d3.select("body")
 						.append("svg")
 						.attr("width", w)
-						.attr("height", h);
+						.attr("height", h)
+						.style("border", "1px solid #d4d4d4");
 
 			//Create circles
 			svg.selectAll("circle")
@@ -82,6 +92,7 @@
 			//Create X axis
 			svg.append("g")
 				.attr("class", "axis")
+				.attr("transform", `translate(0, ${h - padding})`) 
 				.call(xAxis);
 
 		</script>
