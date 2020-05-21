@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>D3: Adding values and elements to a chart</title>
-		<script type="text/javascript" src="../d3.js"></script>
+		<script type="text/javascript" src="../d3.v5/d3.js"></script>
 		<style type="text/css">
 			/* No style rules here yet */
 		</style>
@@ -34,7 +34,8 @@
 			var svg = d3.select("body")
 						.append("svg")
 						.attr("width", w)
-						.attr("height", h);
+						.attr("height", h)
+						.style("border", "1px solid #d4d4d4");
 
 			//Create bars
 			svg.selectAll("rect")
@@ -102,7 +103,7 @@
 						.attr("y", function(d) {				//Sets the y value, based on the updated yScale
 							return h - yScale(d);
 						})
-						.attr("width", xScale.bandwidth())		//Sets the width value, based on the updated xScale
+						.attr("width", 0)		//Sets the width value, based on the updated xScale
 						.attr("height", function(d) {			//Sets the height value, based on the updated yScale
 							return yScale(d);
 						})

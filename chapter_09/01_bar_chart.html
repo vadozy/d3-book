@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>D3: A simple bar chart</title>
-		<script type="text/javascript" src="../d3.js"></script>
+		<script type="text/javascript" src="../d3.v5/d3.js"></script>
 		<style type="text/css">
 			/* No style rules here yet */		
 		</style>
@@ -23,9 +23,10 @@
 			var svg = d3.select("body")
 						.append("svg")
 						.attr("width", w)
-						.attr("height", h);
+						.attr("height", h)
+						.style("border", "1px solid #d4d4d4");
 
-			svg.selectAll("rect")
+			svg.selectAll()
 			   .data(dataset)
 			   .enter()
 			   .append("rect")
@@ -43,7 +44,7 @@
 					return "rgb(0, 0, " + Math.round(d * 10) + ")";
 			   });
 
-			svg.selectAll("text")
+			svg.selectAll()
 			   .data(dataset)
 			   .enter()
 			   .append("text")
@@ -61,8 +62,6 @@
 			   .attr("font-size", "11px")
 			   .attr("fill", "white");
 
-
-			
 		</script>
 	</body>
 </html>
