@@ -9,7 +9,7 @@
 			.line {
 				fill: none;
 				stroke: teal;
-				stroke-width: 0.5;
+				stroke-width: 1;
 			}
 
 		</style>
@@ -61,7 +61,8 @@
 				var svg = d3.select("body")
 							.append("svg")
 							.attr("width", w)
-							.attr("height", h);
+							.attr("height", h)
+							.style("border", "1px solid #d4d4d4");
 
 				//Create line
 				svg.append("path")
